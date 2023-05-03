@@ -61,4 +61,10 @@ export default {
   text-decoration: none
   &:visited
     color: #938A93
+
+@media (max-width: 600px)
+
+.image
+  width: 75vw
+  height: 55vw
 </style>

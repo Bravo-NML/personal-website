@@ -39,5 +39,3 @@ export default {
   },
 };
 </script>
-
-<style lang="sass" src="../assets/styles/AboutMe.sass"></style>
