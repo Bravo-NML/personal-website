@@ -23,12 +23,12 @@ export default {
   data() {
     return {
       projects: [
-        "https://startup.special.ink",
-        "https://moskvateka.special.ink/",
+        "https://iamhero.special.ink/",
         "https://fastcook.special.ink/",
         "https://petcafe.special.ink",
+        "https://startup.special.ink",
         "https://fonbet.dev.special.ink/",
-        "https://koshelek.dev.special.ink/",
+        "https://moskvateka.special.ink/",
       ],
       curProject: 0,
     };
@@ -64,7 +64,7 @@ export default {
 
 @media (max-width: 600px)
 
-.image
-  width: 75vw
-  height: 55vw
+  .image
+    width: 75vw
+    height: 55vw
 </style>
