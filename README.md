@@ -1,4 +1,4 @@
-# bravo2
+# bravo
 
 ## Project setup
 ```
