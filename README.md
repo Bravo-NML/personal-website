@@ -1,4 +1,4 @@
-# bravo
+# Bravo, Iana
 
 ## Project setup
 ```
