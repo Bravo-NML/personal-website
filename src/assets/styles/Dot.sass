@@ -1,0 +1,33 @@
+.dot-link
+    font-size: .8em
+    display: flex
+    flex-direction: column
+    align-items: center
+    color: #FFF5FF
+
+    &_project 
+        .lable
+            display: none
+        .dot
+            width: 20px
+            height: 20px
+
+            &:hover
+                background-color: #FFF5FF
+
+        &_current .dot
+            background-color: #FFF5FF
+
+.dot
+    width: 25px
+    height: 25px
+    background-color: #DD65B7
+    border-radius: 100%
+    cursor: pointer
+.lable
+    opacity: 0
+    transition: opacity .1s lenear
+    margin-top: 10px
+
+    &_visible
+        opacity: 1
