@@ -1,12 +1,28 @@
 <template>
   <div class="page page_projects">
-    <h1 style="margin-bottom: 40px">Some of my projects</h1>
-    <nav class="navigation">
-      <!-- eslint-disable-next-line -->
-      <DotLink v-for="(p, i) in projects" :key="i" class="dot-link_project" @click="curProject = i"/>
-    </nav>
-    <a class="link" :href="projects[curProject]">
-      {{ projects[curProject] }}
+    <h1 style="margin-bottom: 40px">Некоторые из моих проектов</h1>
+    <div class="projects-container">
+      <h3>Игры</h3>
+      <nav class="navigation">
+        <!-- eslint-disable-next-line -->
+        <DotLink v-for="(p, i) in projects.games" :key="i" class="dot-link_project" :class="{'dot-link_project-current': curProject === 'games_' + i}" @click="curProject = 'games_' + i"/>
+      </nav>
+
+      <h3>Продукты</h3>
+      <nav class="navigation">
+        <!-- eslint-disable-next-line -->
+        <DotLink v-for="(p, i) in projects.product" :key="i" class="dot-link_project" :class="{'dot-link_project-current': curProject === 'product_' + i}" @click="curProject = 'product_' + i"/>
+      </nav>
+
+      <h3>Пет-проекты</h3>
+      <nav class="navigation">
+        <!-- eslint-disable-next-line -->
+        <DotLink v-for="(p, i) in projects.pet" :key="i" class="dot-link_project" :class="{'dot-link_project-current': curProject === 'pet_' + i}" @click="curProject = 'pet_' + i"/>
+      </nav>
+    </div>
+
+    <a class="link" target="_blanck" :href="currentProjectUrl">
+      {{ currentProjectUrl }}
     </a>
     <div class="image" :style="'background-image: url(' + image + ')'"></div>
   </div>
@@ -22,20 +38,30 @@ export default {
   },
   data() {
     return {
-      projects: [
-        "https://iamhero.special.ink/",
-        "https://fastcook.special.ink/",
-        "https://petcafe.special.ink",
-        "https://startup.special.ink",
-        "https://fonbet.dev.special.ink/",
-        "https://moskvateka.special.ink/",
-      ],
-      curProject: 0,
+      projects: {
+        games: [
+          "https://iamhero.special.ink/",
+          "https://fastcook.special.ink/",
+          "https://petcafe.special.ink",
+          "https://startup.special.ink",
+          "https://fonbet.dev.special.ink/",
+          "https://moskvateka.special.ink/",
+        ],
+        product: ["https://google.com"],
+        pet: ["https://google.com"],
+      },
+      curProject: "product_0",
     };
   },
   computed: {
     image() {
       return require("../assets/images/" + this.curProject + ".png");
+    },
+
+    currentProjectUrl() {
+      const names = this.curProject.split("_");
+
+      return this.projects[names[0]][names[1]];
     },
   },
 };
@@ -45,26 +71,37 @@ export default {
 .navigation
   width: 100%
   display: flex
-  margin-bottom: 40px
-  justify-content: space-around
+  justify-content: space-between
+
 .image
-  width: 55vh
-  height: 35vh
+  width: 400px
+  height: auto
+  aspect-ratio: 5 / 3
   background-size: cover
   background-position: center
-  margin: 40px auto 0
+  margin: 40px auto 15px
   outline: 3px solid #DD65B7
   outline-offset: 12px
   border-radius: 15px
+
 .link
   color: #FFF5FF
   text-decoration: none
+
   &:visited
     color: #938A93
 
-@media (max-width: 600px)
+.projects-container
+  display: grid
+  grid-template-columns: max-content 1fr
+  margin-left: 40px
+  gap: 20px 20px
+  margin-bottom: 40px
 
+  h3
+    color: #65d9dd
+
+@media (max-width: 600px)
   .image
     width: 75vw
-    height: 55vw
 </style>

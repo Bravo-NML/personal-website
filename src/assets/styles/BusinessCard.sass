@@ -1,6 +1,9 @@
 .business-card
-    width: 500px
-    height: 300px
+    width: 34vw
+    min-width: 400px
+    max-width: 700px
+    height: auto
+    aspect-ratio: 5 / 3
     perspective: 1000px
     cursor: pointer
     transition: transform .6s
@@ -33,8 +36,6 @@
         border-radius: 10px 
 
         background-color: #FFF5FF
-        // outline: solid 5px #DD65B7
-        // outline-offset: -24px
 
         display: flex
         flex-direction: column
@@ -51,7 +52,6 @@
     &__h1
         font-size: 3em
     &__p
-        // align-self: flex-start
         margin: 5px
 
         &_front
@@ -61,8 +61,8 @@
 
 @media (max-width: 600px)
     .business-card
+        min-width: 0
         width: 300px
-        height: 180px
 
         &__side
             padding: 15px

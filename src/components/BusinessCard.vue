@@ -1,10 +1,10 @@
 <template>
-  <div class="business-card" @click="$emit('goToStart', 'start')">
+  <div class="business-card">
     <div class="business-card__inner">
       <div class="business-card__side business-card__side_front">
-        <h1 class="business-card__h1">Bravo, Yana</h1>
+        <h1 class="business-card__h1" data-test="name">Bravo, не Яна</h1>
         <p class="business-card__p business-card__p_front">
-          web-developer and more
+          Frontend developer
         </p>
       </div>
       <div class="business-card__side business-card__side_back">
@@ -12,7 +12,7 @@
           <strong>E-mail: </strong>
           nglb.mainpoint@yandex.ru
         </p>
-        <p class="business-card__p"><strong>Telegram: </strong>@Bravo_NML</p>
+        <p class="business-card__p"><strong>Telegram: </strong>@YadaYadaYana</p>
         <p class="business-card__p"><strong>Phone: </strong>+7 9851781965</p>
       </div>
     </div>

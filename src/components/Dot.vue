@@ -1,13 +1,14 @@
 <template>
   <div class="dot-link" @click="$emit('openPage', title)">
     <div
-      :class="'dot ' + (lable ? 'dot_bigger' : '')"
+      class="dot"
+      :class="{
+        'dot-current': currentRouteName === router,
+      }"
       name="dot"
-      @mouseover="lableVisible(true)"
-      @mouseleave="lableVisible(false)"
     ></div>
 
-    <label for="dot" :class="'lable ' + (lable ? 'lable_visible' : '')">
+    <label for="dot" class="label">
       {{ title }}
     </label>
   </div>
@@ -18,15 +19,11 @@ export default {
   name: "DotLink",
   props: {
     title: String,
+    router: String,
   },
-  data() {
-    return {
-      lable: false,
-    };
-  },
-  methods: {
-    lableVisible(a) {
-      this.lable = a;
+  computed: {
+    currentRouteName() {
+      return this.$route.name;
     },
   },
 };

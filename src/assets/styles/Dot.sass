@@ -14,8 +14,9 @@
 
             &:hover
                 background-color: #FFF5FF
+                transform: scale(1)
 
-        &_current .dot
+        &-current .dot
             background-color: #FFF5FF
 
 .dot
@@ -24,10 +25,23 @@
     background-color: #DD65B7
     border-radius: 100%
     cursor: pointer
-.lable
-    opacity: 0
-    transition: opacity .1s lenear
-    margin-top: 10px
+    transition: transform .1s linear
 
-    &_visible
+    &-current
+        + label 
+            opacity: 1
+
+    &:hover + label 
         opacity: 1
+
+    &:hover
+        transform: scale(1.2)
+    
+
+.label
+    opacity: 0
+    transition: opacity .1s linear
+    line-height: 50px
+    position: absolute
+    top: 100%
+    width: max-content

@@ -1,11 +1,15 @@
 <template>
-  <div class="footer">
-    <DotLink title="Home" @click="goPage('/')" />
-    <DotLink title="About Me" @click="goPage('/about-me')" />
-    <DotLink title="Hard Skills" @click="goPage('/hard-skills')" />
-    <DotLink title="Projects" @click="goPage('/projects')" />
-  </div>
   <router-view />
+  <div class="footer">
+    <DotLink title="Визитка" router="home" @click="goPage('/')" />
+    <DotLink title="Обо мне" router="about-me" @click="goPage('/about-me')" />
+    <DotLink
+      title="Hard Skills"
+      router="hard-skills"
+      @click="goPage('/hard-skills')"
+    />
+    <DotLink title="Проекты" router="projects" @click="goPage('/projects')" />
+  </div>
 </template>
 
 <script>
