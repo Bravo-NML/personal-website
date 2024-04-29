@@ -2,7 +2,7 @@
   <div class="business-card">
     <div class="business-card__inner">
       <div class="business-card__side business-card__side_front">
-        <h1 class="business-card__h1" data-test="name">Bravo, не Яна</h1>
+        <h1 class="business-card__h1" data-test="name">Bravo, не. Яна</h1>
         <p class="business-card__p business-card__p_front">
           Frontend developer
         </p>
