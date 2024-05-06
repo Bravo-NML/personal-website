@@ -1,24 +1,24 @@
 <template>
   <div class="page page_projects">
-    <h1 style="margin-bottom: 40px">Некоторые из моих проектов</h1>
+    <h1 style="margin-bottom: 40px">Some of my projects</h1>
     <div class="projects-container">
-      <h3>Игры</h3>
+      <h3>Games</h3>
       <nav class="navigation">
         <!-- eslint-disable-next-line -->
         <DotLink v-for="(p, i) in projects.games" :key="i" class="dot-link_project" :class="{'dot-link_project-current': curProject === 'games_' + i}" @click="curProject = 'games_' + i"/>
       </nav>
 
-      <h3>Продукты</h3>
+      <h3>Products</h3>
       <nav class="navigation">
         <!-- eslint-disable-next-line -->
         <DotLink v-for="(p, i) in projects.product" :key="i" class="dot-link_project" :class="{'dot-link_project-current': curProject === 'product_' + i}" @click="curProject = 'product_' + i"/>
       </nav>
 
-      <h3>Пет-проекты</h3>
+      <!-- <h3>Пет-проекты</h3>
       <nav class="navigation">
-        <!-- eslint-disable-next-line -->
+        eslint-disable-next-line
         <DotLink v-for="(p, i) in projects.pet" :key="i" class="dot-link_project" :class="{'dot-link_project-current': curProject === 'pet_' + i}" @click="curProject = 'pet_' + i"/>
-      </nav>
+      </nav> -->
     </div>
 
     <a class="link" target="_blanck" :href="currentProjectUrl">
@@ -47,8 +47,8 @@ export default {
           "https://fonbet.dev.special.ink/",
           "https://moskvateka.special.ink/",
         ],
-        product: ["https://google.com"],
-        pet: ["https://google.com"],
+        product: ["https://brandanalytics.ru/en_RU/"],
+        pet: [""],
       },
       curProject: "product_0",
     };

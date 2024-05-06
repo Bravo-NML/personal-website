@@ -1,14 +1,13 @@
 <template>
   <router-view />
   <div class="footer">
-    <DotLink title="Визитка" router="home" @click="goPage('/')" />
-    <DotLink title="Обо мне" router="about-me" @click="goPage('/about-me')" />
     <DotLink
-      title="Hard Skills"
-      router="hard-skills"
-      @click="goPage('/hard-skills')"
+      v-for="item in menuData"
+      :key="item.router"
+      :title="item.title"
+      :router="item.router"
+      @click="goPage(item.url)"
     />
-    <DotLink title="Проекты" router="projects" @click="goPage('/projects')" />
   </div>
 </template>
 
@@ -19,6 +18,32 @@ export default {
   name: "HelloPage",
   components: {
     DotLink,
+  },
+  data() {
+    return {
+      menuData: [
+        {
+          title: "Contact me",
+          router: "home",
+          url: "/",
+        },
+        {
+          title: "About me",
+          router: "about-me",
+          url: "/about-me",
+        },
+        {
+          title: "Hard Skills",
+          router: "hard-skills",
+          url: "/hard-skills",
+        },
+        {
+          title: "Progects",
+          router: "projects",
+          url: "/projects",
+        },
+      ],
+    };
   },
   methods: {
     goPage(a) {
