@@ -44,7 +44,6 @@ export default {
           "https://fastcook.special.ink/",
           "https://petcafe.special.ink",
           "https://startup.special.ink",
-          "https://fonbet.dev.special.ink/",
           "https://moskvateka.special.ink/",
         ],
         product: ["https://brandanalytics.ru/en_RU/"],
