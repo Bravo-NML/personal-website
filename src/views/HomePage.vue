@@ -4,14 +4,6 @@
   </div>
 </template>
 
-<script>
-// @ is an alias to /src
+<script setup>
 import BusinessCard from "@/components/BusinessCard.vue";
-
-export default {
-  name: "HomeView",
-  components: {
-    BusinessCard,
-  },
-};
 </script>

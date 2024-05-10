@@ -1,14 +1,21 @@
 <template>
   <div class="page page_projects">
-    <h1 style="margin-bottom: 40px">Some of my projects</h1>
+    <h1 style="margin-bottom: 40px">{{ texts.header }}</h1>
     <div class="projects-container">
-      <h3>Games</h3>
+      <h3>{{ texts.games }}</h3>
       <nav class="navigation">
-        <!-- eslint-disable-next-line -->
-        <DotLink v-for="(p, i) in projects.games" :key="i" class="dot-link_project" :class="{'dot-link_project-current': curProject === 'games_' + i}" @click="curProject = 'games_' + i"/>
+        <DotLink
+          v-for="(p, i) in projects.games"
+          :key="i"
+          class="dot-link_project"
+          :class="{
+            'dot-link_project-current': curProject === 'games_' + i,
+          }"
+          @click="curProject = 'games_' + i"
+        />
       </nav>
 
-      <h3>Products</h3>
+      <h3>{{ texts.products }}</h3>
       <nav class="navigation">
         <!-- eslint-disable-next-line -->
         <DotLink v-for="(p, i) in projects.product" :key="i" class="dot-link_project" :class="{'dot-link_project-current': curProject === 'product_' + i}" @click="curProject = 'product_' + i"/>
@@ -28,42 +35,40 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import { ref, computed, inject } from "vue";
+
+const translations = inject("translations");
+
+const texts = computed(() => {
+  return translations.value.projects;
+});
+
 import DotLink from "../components/Dot.vue";
 
-export default {
-  name: "AboutMe",
-  components: {
-    DotLink,
-  },
-  data() {
-    return {
-      projects: {
-        games: [
-          "https://iamhero.special.ink/",
-          "https://fastcook.special.ink/",
-          "https://petcafe.special.ink",
-          "https://startup.special.ink",
-          "https://moskvateka.special.ink/",
-        ],
-        product: ["https://brandanalytics.ru/en_RU/"],
-        pet: [""],
-      },
-      curProject: "product_0",
-    };
-  },
-  computed: {
-    image() {
-      return require("../assets/images/" + this.curProject + ".png");
-    },
-
-    currentProjectUrl() {
-      const names = this.curProject.split("_");
-
-      return this.projects[names[0]][names[1]];
-    },
-  },
+const projects = {
+  games: [
+    "https://iamhero.special.ink/",
+    "https://fastcook.special.ink/",
+    "https://petcafe.special.ink",
+    "https://startup.special.ink",
+    "https://moskvateka.special.ink/",
+  ],
+  product: ["https://brandanalytics.ru/en_RU/"],
+  pet: [""],
 };
+
+const curProject = ref("product_0");
+
+const image = computed(() => {
+  return require("../assets/images/" + curProject.value + ".png");
+});
+
+const currentProjectUrl = computed(() => {
+  const names = curProject.value.split("_");
+
+  return projects[names[0]][names[1]];
+});
 </script>
 
 <style lang="sass">
@@ -71,6 +76,7 @@ export default {
   width: 100%
   display: flex
   justify-content: space-between
+  padding-right: 10px
 
 .image
   width: 400px

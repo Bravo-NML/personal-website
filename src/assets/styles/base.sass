@@ -103,14 +103,25 @@ body
   overflow-y: auto
 
   h1
-    color: #DD65B7
+    color: $color-pink
     line-height: 120%
 
   strong
-    border-bottom: 2px solid #DD65B7
+    border-bottom: 2px solid $color-pink
 
   p
     margin: 10px 0
+
+.language-changer
+  color: $color-pink
+  position: absolute
+  top: 25px
+  left: 25px
+  cursor: pointer
+  transition: all .1s linear
+
+  &:hover 
+    transform: scale(1.2)
 
 
 @media (max-width: 600px)
