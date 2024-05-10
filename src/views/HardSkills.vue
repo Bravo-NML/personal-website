@@ -83,7 +83,9 @@ const skills = computed(() => {
     font-size: .7em
 
 @media (max-width: $media-phone)
-
   .skills
     gap: 15px
+
+    &-has_add &:hover .skill-additional
+      opacity: 0
 </style>
