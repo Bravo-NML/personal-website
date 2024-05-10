@@ -92,7 +92,7 @@ body
     background-color: $background-black
 
 .page
-  color: #FFF5FF
+  color: $color-white
   msx-height: calc(100% - 120px)
   height: auto
   width: calc(90vw - 400px)
@@ -124,15 +124,21 @@ body
     transform: scale(1.2)
 
 
-@media (max-width: 600px)
+@media (max-width: $media-phone)
   body
     font-size: 12px
     line-height: 120%
 
+  #app 
+    padding: 40px 20px 100px
+
   .page
-    position: absolute
-    color: #FFF5FF
-    // border: solid 2px #FFF5FF
-    height: 70vh
-    width: 90vw
+    color: $color-white
+    height: auto
+    max-height: 70vh
+    width: 100%
     min-width: 0px
+
+  .language-changer
+    top: 5vw
+    left: 5vw

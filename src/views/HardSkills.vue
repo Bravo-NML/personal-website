@@ -40,27 +40,29 @@ const skills = computed(() => {
 </script>
 
 <style lang="sass">
+@import "@/assets/styles/variables"
+
 .skills
   display: flex
   flex-wrap: wrap
+  gap: 30px
   align-content: flex-start
   width: 100%
   height: 100%
 
 .skill
-  padding: 10px 20px
-  width: fit-content
-  height: fit-content
-  margin: 20px
-  background-color: #FFF5FF
-  color: #10080D
-  border-radius: 10px
-
   display: flex
   align-items: center
   justify-content: center
-  margin-left: 0px
 
+  margin-left: 0px
+  padding: 10px 20px
+  width: fit-content
+  height: fit-content
+
+  background-color: $color-white
+  color: #10080D
+  border-radius: 10px
   cursor: default
 
   &:last-of-type
@@ -74,8 +76,14 @@ const skills = computed(() => {
 
   &-additional
     position: absolute
-    color: #fff
     bottom: -60%
+    color: $color-white
     opacity: 0
     transition: all .1s linear
+    font-size: .7em
+
+@media (max-width: $media-phone)
+
+  .skills
+    gap: 15px
 </style>
